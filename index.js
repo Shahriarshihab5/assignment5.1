@@ -1,8 +1,7 @@
-window.addEventListener('DOMContentLoaded', (event) => {
-    allInOne("donate-now-btn", "local-donation", "donation-amount", "Flood at Noakhali, Bangladesh");
-    allInOne("donate-now-btn2", "local-donation2", "donation-amount2", "Flood at Feni, Bangladesh");
-    allInOne("donate-now-btn3", "local-donation3", "donation-amount3", "Quota Movement Aid");
-});
+ allInOne("donate-now-btn", "local-donation", "donation-amount", "Flood at Noakhali, Bangladesh");
+ allInOne("donate-now-btn2", "local-donation2", "donation-amount2", "Flood at Feni, Bangladesh");
+allInOne("donate-now-btn3", "local-donation3", "donation-amount3", "Quota Movement Aid");
+
 
 function allInOne(donateBtnId, localDonationId, donationAmountId, cause) {
     const donate = document.getElementById(donateBtnId);
@@ -28,13 +27,12 @@ function allInOne(donateBtnId, localDonationId, donationAmountId, cause) {
             return;
         }
 
-        // Update local donation total (increment)
+
         let currentLocalDonation = parseFloat(local.innerText) || 0;
         local.innerText = (currentLocalDonation + donationAmount).toFixed(2);
 
         console.log(`Donated Amount: ${donationAmount}`);
 
-        // Update total donation balance (increment instead of decrement)
         let balance = parseFloat(document.getElementById('total-donation').innerText);
 
         if (isNaN(balance)) {
@@ -42,13 +40,13 @@ function allInOne(donateBtnId, localDonationId, donationAmountId, cause) {
             return;
         }
 
-        balance = balance - donationAmount;  // Increment total donation balance
+        balance = balance - donationAmount;  
         document.getElementById('total-donation').innerText = balance.toFixed(2); 
         console.log(`Updated Total Donation Balance: ${balance}`);
 
         document.getElementById(donationAmountId).value = '';
 
-        // Add the donation to the history section
+        // Addef the donation to the history sevtion
         addToHistory(donationAmount, cause);
     });
 
