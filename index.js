@@ -29,7 +29,7 @@ function allInOne(donateBtnId, localDonationId, donationAmountId, cause) {
 
 
         let currentLocalDonation = parseFloat(local.innerText) || 0;
-        local.innerText = (currentLocalDonation + donationAmount).toFixed(2);
+        local.innerText = (currentLocalDonation + donationAmount);
 
         console.log(`Donated Amount: ${donationAmount}`);
 
@@ -41,7 +41,7 @@ function allInOne(donateBtnId, localDonationId, donationAmountId, cause) {
         }
 
         balance = balance - donationAmount;  
-        document.getElementById('total-donation').innerText = balance.toFixed(2); 
+        document.getElementById('total-donation').innerText = balance; 
         console.log(`Updated Total Donation Balance: ${balance}`);
 
         document.getElementById(donationAmountId).value = '';
